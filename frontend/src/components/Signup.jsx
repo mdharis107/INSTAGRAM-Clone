@@ -14,7 +14,7 @@ import { Center, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -119,7 +119,7 @@ const Signup = () => {
       <div className={styles.bottom_box}>
         <p>
           Have an account?{" "}
-          <Link  color={"#0095F6"} _hover={{ textDecoration: "none" }}>
+          <Link color={"#0095F6"} _hover={{ textDecoration: "none" }}>
             Log in
           </Link>{" "}
         </p>
