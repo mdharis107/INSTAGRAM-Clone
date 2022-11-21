@@ -18,7 +18,7 @@
   
   @media all and (min-width: 80px) and (max-width:450px) {
     .outbox {
-      width: 90%;
+      width: 95%;
     }
   } 
 
@@ -38,3 +38,15 @@
     margin: auto;
     padding: 30px 50px;
 }
+
+@media all and (min-width: 451px) and (max-width: 750px) {
+  .bottom_box {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 80px) and (max-width:450px) {
+  .bottom_box {
+    width: 95%;
+  }
+} 

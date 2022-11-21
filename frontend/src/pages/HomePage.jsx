@@ -18,12 +18,9 @@ import {
   BsFillBookmarkFill,
   BsBookmark,
 } from "react-icons/bs";
-import {AiOutlineMessage} from 'react-icons/ai'
-import { MdHomeFilled } from "react-icons/md"
-import {ImCompass2} from 'react-icons/im'
-import {CgAddR} from 'react-icons/cg'
 import { FiMessageCircle, FiSend } from "react-icons/fi";
 import { useState } from "react";
+
 
 const HomePage = () => {
   const [liked, setLiked] = useState(false);
@@ -244,29 +241,29 @@ const HomePage = () => {
         </Stack>
       </div>
 
-      <div className={styles.bottomBox}>
+      {/* <div className={styles.bottomBox}>
         <Box>
-        <MdHomeFilled fontSize={"26px"}/>
+          <MdHomeFilled fontSize={"26px"} />
         </Box>
         <Box>
-        <ImCompass2 fontSize={"26px"}/>
+          <ImCompass2 fontSize={"26px"} />
         </Box>
         <Box>
-        <CgAddR fontSize={"26px"}/>
+          <CgAddR fontSize={"26px"} />
         </Box>
         <Box>
-        <AiOutlineMessage fontSize={"26px"}/>
+          <AiOutlineMessage fontSize={"26px"} />
         </Box>
         <Box>
-        <Avatar
-        w={'30px'}
-        h={'30px'}
-
+          <Avatar
+            w={"30px"}
+            h={"30px"}
             src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
             alt={"Author"}
           />
         </Box>
-      </div>
+      </div> */}
+      {/* <BottomNavbar/> */}
     </div>
   );
 };

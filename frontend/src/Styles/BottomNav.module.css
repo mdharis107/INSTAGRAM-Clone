@@ -1,0 +1,27 @@
+.bottomBox{
+    border: 1px solid rgb(219, 219, 219);
+    object-fit: contain;
+    width: 35%;
+    margin: auto;
+    bottom: 0;
+    position: sticky;
+    padding: 13px 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  @media all and (min-width: 451px) and (max-width: 750px) {
+    .bottomBox {
+      width: 100%;
+    }
+  }
+  
+  @media all and (min-width: 80px) and (max-width:450px) {
+    .bottomBox {
+      width: 100%;
+    }
+  }

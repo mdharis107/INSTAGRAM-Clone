@@ -12,7 +12,9 @@
 }
  @media all and (min-width: 451px) and (max-width: 750px) {
     .outbox {
-      width: 50%;
+      width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
     }
   }
   

@@ -2,7 +2,9 @@ import React from 'react'
 
 const PostAddingPage = () => {
   return (
-    <div>PostAddingPage</div>
+    <div>
+      
+    </div>
   )
 }
 

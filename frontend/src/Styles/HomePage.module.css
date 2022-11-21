@@ -2,7 +2,8 @@
     border: 1px solid rgb(219, 219, 219);
     object-fit: contain;
     top: 0;
-    position: fixed;
+    
+    position: sticky;
     width: 35%;
     margin: auto;
     /* margin-right: 100px; */
@@ -36,6 +37,7 @@
   }
 
   .status{
+    
     border: 1px solid rgb(219, 219, 219);
     width: 30%;
     margin: auto;
@@ -49,6 +51,7 @@
     align-items: center;
     justify-content:space-evenly;
     /* gap: 10px; */
+    /* position: fixed; */
     overflow: hidden;
     border-radius: 8px;
     
@@ -68,6 +71,7 @@
 
 
 .posts{
+  /* position: fixed; */
   border: 1px solid rgb(219, 219, 219);
   width: 30%;
   margin: auto;
@@ -92,13 +96,13 @@
   }
 }
 
-.bottomBox{
+/* .bottomBox{
   border: 1px solid rgb(219, 219, 219);
   object-fit: contain;
   width: 35%;
   margin: auto;
   bottom: 0;
-  position: fixed;
+  position: sticky;
   padding: 13px 10px;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -118,4 +122,4 @@
   .bottomBox {
     width: 100%;
   }
-}
+} */

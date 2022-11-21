@@ -11,10 +11,10 @@ export const MainRoute = () => {
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/" element={<Signup />} />
-        <Route path="/" element={<UserDetailPage />} />
-        <Route path="/" element={<PostAddingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/user" element={<UserDetailPage />} />
+        <Route path="/addPost" element={<PostAddingPage />} />
         {/* <Route path='/' element={Top} /> */}
       </Routes>
     </div>
