@@ -119,15 +119,6 @@ const HomePage = () => {
           </Text>
         </Box>
 
-        {/* <Box spacing={1} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-            alt={"Author"}
-          />
-          <Text fontSize={"12px"} fontWeight={400}>
-            Achim Rolle
-          </Text>
-        </Box> */}
       </div>
 
       <div className={styles.posts}>

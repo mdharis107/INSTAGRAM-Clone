@@ -20,6 +20,7 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { MdHomeFilled } from "react-icons/md";
 import { ImCompass2 } from "react-icons/im";
 import { CgAddR } from "react-icons/cg";
+import { Link as ReachLink } from "react-router-dom"
 
 const BottomNavbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,13 +28,12 @@ const BottomNavbar = () => {
 
   return (
     <div className={styles.bottomBox}>
-      <Box as={'a'} href='/' >
+      <Box as={ReachLink} to='/' >
         <MdHomeFilled fontSize={"26px"} />
       </Box>
       <Box>
         <ImCompass2 fontSize={"26px"} />
       </Box>
-      {/* <Box ref={finalRef} tabIndex={-1} > */}
       <Box onClick={onOpen} _hover={{ bg: "none" }} bg={"none"} as={Button}>
         <CgAddR fontSize={"26px"} />
         {/* </Box> */}
@@ -73,7 +73,7 @@ const BottomNavbar = () => {
       <Box>
         <AiOutlineMessage fontSize={"26px"} />
       </Box>
-      <Box as={'a'} href="/user" >
+      <Box as={ReachLink} to='/user' >
         <Avatar
           w={"30px"}
           h={"30px"}
