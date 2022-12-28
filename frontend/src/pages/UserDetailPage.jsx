@@ -1,6 +1,17 @@
 import React from "react";
-import { Text, Stack, Avatar, Box, Heading, Button } from "@chakra-ui/react";
+import {
+  Text,
+  Stack,
+  Avatar,
+  Box,
+  Heading,
+  Button,
+  Icon,
+} from "@chakra-ui/react";
 import styles from "../Styles/userDetail.module.css";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { MdApps,MdOutlinePersonPin } from "react-icons/md";
+import { BsBookmark } from "react-icons/bs";
 
 const UserDetailPage = () => {
   return (
@@ -34,25 +45,52 @@ const UserDetailPage = () => {
         </Box>
       </Stack>
       <Stack
-      mt={2}
+        mt={2}
         display={"flex"}
         direction={"row"}
         alignItems={"center"}
         justifyContent={"space-evenly"}
-        border= "1px solid rgb(219, 219, 219)"
+        border="1px solid rgb(219, 219, 219)"
       >
         <Box>
-          <Text>4</Text>
-          <Text>posts</Text>
+          <Text fontWeight={600}>4</Text>
+          <Text color={"#8E8E8E"}>posts</Text>
         </Box>
         <Box>
-          <Text>4</Text>
-          <Text>posts</Text>
+          <Text fontWeight={600}>4</Text>
+          <Text color={"#8E8E8E"}>posts</Text>
         </Box>
         <Box>
-          <Text>4</Text>
-          <Text>posts</Text>
+          <Text fontWeight={600}>4</Text>
+          <Text color={"#8E8E8E"}>posts</Text>
         </Box>
+      </Stack>
+      <Stack>
+        <Tabs colorScheme={"gray"} isFitted>
+          <TabList>
+            <Tab>
+              <Icon color={"#8E8E8E"} boxSize={6} as={MdApps} />
+              {/* <MdApps /> */}
+            </Tab>
+            <Tab>
+              <Icon color={"#8E8E8E"} boxSize={5} as={BsBookmark} />
+            </Tab>
+            <Tab>
+              <Icon color={"#8E8E8E"} boxSize={7} as={MdOutlinePersonPin}/>
+            </Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <p>one!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>two!</p>
+            </TabPanel>
+            <TabPanel>
+              <p>three!</p>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Stack>
     </div>
   );
