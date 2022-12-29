@@ -1,5 +1,7 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/User.model");
+require("dotenv").config();
 
 //Signup
 const addUser = async (req, res) => {
@@ -29,10 +31,29 @@ const addUser = async (req, res) => {
   }
 };
 
-//Login 
+//Login
 
+const LoginUser = async (req, res) => {
+  const { username, password } = req.body;
+  const user = await UserModel.findOne({ username });
 
+  const hash = user.password;
+
+  bcrypt.compare(password, hash, function (err, result) {
+    if (err) {
+      res.send({ msg: "Something went wrong please try again later" });
+    }
+
+    if (result) {
+      const token = jwt.sign({ username: username }, process.env.PRIVATE_KEY);
+      res.send({ msg: "Login Successful", token });
+    } else {
+      res.send({ msg: "Invalid credentials, please signup if you haven't" });
+    }
+  });
+};
 
 module.exports = {
   addUser,
+  LoginUser
 };
