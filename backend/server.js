@@ -1,5 +1,7 @@
 const express = require("express");
 const { connection } = require("./config/db");
+const { authentication } = require("./middlewares/authentication");
+const { postRouter } = require("./routes/post.routes");
 const { userRouter } = require("./routes/user.routes");
 require("dotenv").config();
 
@@ -13,6 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
+
+app.use(authentication);
+
+app.use("/post", postRouter);
 
 app.listen(PORT, async (req, res) => {
   try {
