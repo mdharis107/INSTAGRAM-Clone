@@ -35,25 +35,29 @@ const addUser = async (req, res) => {
 
 const LoginUser = async (req, res) => {
   const { username, password } = req.body;
+
   const user = await UserModel.findOne({ username });
+  if (user) {
+    const hash = user.password;
 
-  const hash = user.password;
+    bcrypt.compare(password, hash, function (err, result) {
+      if (err) {
+        res.status(500).send({ msg: "Something went wrong please try again later" });
+      }
 
-  bcrypt.compare(password, hash, function (err, result) {
-    if (err) {
-      res.send({ msg: "Something went wrong please try again later" });
-    }
-
-    if (result) {
-      const token = jwt.sign({ username: username }, process.env.PRIVATE_KEY);
-      res.send({ msg: "Login Successful", token });
-    } else {
-      res.send({ msg: "Invalid credentials, please signup if you haven't" });
-    }
-  });
+      if (result) {
+        const token = jwt.sign({ username: username }, process.env.PRIVATE_KEY);
+        res.send({ msg: "Login Successful", token });
+      } else {
+        res.status(500).send({ msg: "Invalid credentials, please signup if you haven't" });
+      }
+    });
+  } else {
+    res.status(500).send({ msg: "Please Register" });
+  }
 };
 
 module.exports = {
   addUser,
-  LoginUser
+  LoginUser,
 };

@@ -3,12 +3,15 @@ const { connection } = require("./config/db");
 const { authentication } = require("./middlewares/authentication");
 const { postRouter } = require("./routes/post.routes");
 const { userRouter } = require("./routes/user.routes");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Instagram");

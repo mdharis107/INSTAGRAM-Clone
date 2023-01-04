@@ -1,8 +1,35 @@
 import React from "react";
 import styles from "../Styles/Login.module.css";
 import { Box, Button, Image, Input, Link, Stack } from "@chakra-ui/react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/auth/action";
 
 const Login = () => {
+  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+  const token = useSelector((state) => console.log(state.AuthReducer))
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(user))
+    .then((res)=>{
+      if(res.payload){
+        alert("Login Successful")
+      }
+      else{
+        alert("Login Failure")
+      }
+      // console.log(res.payload)
+    })
+      // console.log(token)
+  };
+
   return (
     <div>
       <div className={styles.outbox}>
@@ -17,12 +44,14 @@ const Login = () => {
             alt="instagramLogo"
           />
         </div>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <Stack pb={"15px"} mt={"10px"}>
             <Box>
               <Input
+                name="username"
+                onChange={handleChange}
                 fontSize={"13px"}
-                type={"email"}
+                type={"text"}
                 placeholder="Phone number, username, or email"
                 borderRadius={0}
               />
@@ -30,6 +59,8 @@ const Login = () => {
 
             <Box>
               <Input
+                name="password"
+                onChange={handleChange}
                 fontSize={"13px"}
                 type={"password"}
                 placeholder="Password"

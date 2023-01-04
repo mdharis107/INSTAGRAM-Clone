@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../Styles/Signup.module.css";
 import {
   Box,
@@ -12,9 +12,34 @@ import {
 import { FaFacebook } from "react-icons/fa";
 import { Center, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signup } from "../redux/auth/action";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // console.log(user);
+    dispatch(signup(user))
+      .then((res) => {
+        alert(res.payload.msg)
+        navigate("/login")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -30,7 +55,7 @@ const Signup = () => {
             alt="instagramLogo"
           />
         </div>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <Stack mt={"10px"}>
             <Box>
               <h3 className={styles.text}>
@@ -68,6 +93,8 @@ const Signup = () => {
             </Stack>
             <Box>
               <Input
+                name="email"
+                onChange={handleChange}
                 fontSize={"13px"}
                 type={"email"}
                 placeholder="Phone number, username, or email"
@@ -76,6 +103,8 @@ const Signup = () => {
             </Box>
             <Box>
               <Input
+                name="name"
+                onChange={handleChange}
                 fontSize={"13px"}
                 type={"text"}
                 placeholder="Full Name"
@@ -84,6 +113,8 @@ const Signup = () => {
             </Box>
             <Box>
               <Input
+                name="username"
+                onChange={handleChange}
                 fontSize={"13px"}
                 type={"text"}
                 placeholder="Username"
@@ -93,6 +124,8 @@ const Signup = () => {
 
             <Box>
               <Input
+                name="password"
+                onChange={handleChange}
                 fontSize={"13px"}
                 type={"password"}
                 placeholder="Password"
