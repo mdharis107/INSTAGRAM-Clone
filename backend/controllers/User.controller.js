@@ -49,11 +49,11 @@ const LoginUser = async (req, res) => {
         const token = jwt.sign({ username: username }, process.env.PRIVATE_KEY);
         res.send({ msg: "Login Successful", token });
       } else {
-        res.status(500).send({ msg: "Invalid credentials, please signup if you haven't" });
+        res.status(404).send({ msg: "Invalid credentials, please signup if you haven't" });
       }
     });
   } else {
-    res.status(500).send({ msg: "Please Register" });
+    res.status(404).send({ msg: "Please Register" });
   }
 };
 

@@ -3,12 +3,17 @@ import styles from "../Styles/Login.module.css";
 import { Box, Button, Image, Input, Link, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import  { useNavigate } from "react-router-dom"
 import { login } from "../redux/auth/action";
 
 const Login = () => {
   const [user, setUser] = useState({});
   const dispatch = useDispatch();
-  const token = useSelector((state) => console.log(state.AuthReducer))
+  const navigate = useNavigate();
+  const token = useSelector((state) => {
+    return state.AuthReducer;
+  });
+  // console.log(token)
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -18,16 +23,19 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login(user))
-    .then((res)=>{
-      if(res.payload){
-        alert("Login Successful")
-      }
-      else{
-        alert("Login Failure")
-      }
-      // console.log(res.payload)
-    })
-      // console.log(token)
+      .then((res) => {
+        if(res){
+          alert("Login Successful")
+          console.log(res)
+          // navigate("/")
+        }
+        else{
+          alert("Login Failed")
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
