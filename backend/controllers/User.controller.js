@@ -42,14 +42,19 @@ const LoginUser = async (req, res) => {
 
     bcrypt.compare(password, hash, function (err, result) {
       if (err) {
-        res.status(500).send({ msg: "Something went wrong please try again later" });
+        res
+          .status(500)
+          .send({ msg: "Something went wrong please try again later" });
       }
 
       if (result) {
-        const token = jwt.sign({ username: username }, process.env.PRIVATE_KEY);
+        const token = jwt.sign({ user: username }, process.env.PRIVATE_KEY);
+        console.log(token);
         res.send({ msg: "Login Successful", token });
       } else {
-        res.status(404).send({ msg: "Invalid credentials, please signup if you haven't" });
+        res
+          .status(404)
+          .send({ msg: "Invalid credentials, please signup if you haven't" });
       }
     });
   } else {

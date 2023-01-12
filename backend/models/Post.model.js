@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema({
   image: String,
   caption: [String],
   location: String,
-  userId: { type: String, required: true },
+  user: { type: String, required: true },
 });
 
 const PostModel = mongoose.model("post", postSchema);
