@@ -18,7 +18,7 @@ const postFeed = async (req, res) => {
   const { title, caption, location, user } = req.body;
  
   const image = req.file.originalname;
-  console.log(image)
+  // console.log(req)
   const feed = new PostModel({
     title,
     caption,
@@ -26,8 +26,9 @@ const postFeed = async (req, res) => {
     image,
     user,
   });
+  // console.log(user)
   console.log("post", feed);
-  // await feed.save();
+  // await feed.save()
 
   // try {
   //   await feed.save();

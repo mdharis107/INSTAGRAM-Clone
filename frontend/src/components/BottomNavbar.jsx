@@ -29,7 +29,7 @@ const BottomNavbar = () => {
   const finalRef = useRef(null);
   const [post, setPost] = useState({});
   const inputRef = useRef();
-  const token = useSelector((state)=>state.AuthReducer.token);
+  const token = useSelector((state) => state.AuthReducer.token);
 
   console.log(token, "token");
 
@@ -55,14 +55,14 @@ const BottomNavbar = () => {
       title: post.title,
       caption: post.caption,
       location: post.location,
-      image:imageData,
+      image: imageData,
     };
 
     axios
       .post("http://localhost:8000/post/addPost", payload, {
         headers: {
           Authorization: token,
-          // "Content-Type": "multipart/form-data",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
@@ -84,7 +84,7 @@ const BottomNavbar = () => {
         <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <form action="" onSubmit={handleSubmit}  >
+            <form action="" onSubmit={handleSubmit}>
               <ModalHeader>Create your Post</ModalHeader>
               <ModalCloseButton />
               <ModalBody pb={6}>

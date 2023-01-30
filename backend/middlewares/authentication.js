@@ -13,6 +13,7 @@ const authentication = (req, res, next) => {
     } else {
       console.log(decoded.user, "here");
       req.body.user = decoded.user;
+      
       next();
     }
   });
